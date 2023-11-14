@@ -92,7 +92,7 @@ app.post("/update-user", async (req, res) => {
 
 app.post("/create-sale", async (req, res) => {
     const { user_id } = req.body
-    const [data] = await pool.query("INSERT INTO sales (user_id) VALUES (?)", [user_id])
+    const [data] = await pool.query("INSERT INTO sales (sale_date,user_id) VALUES (CURRENT_DATE,?)", [user_id])
     return res.json({ id: data.insertId })
 })
 
