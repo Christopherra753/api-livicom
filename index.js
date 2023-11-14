@@ -2,6 +2,7 @@ import express from "express";
 import { pool } from "./db.js"
 import cors from "cors"
 import bcryptjs from "bcryptjs"
+import { PORT } from './config.js'
 
 const app = express()
 app.use(express.json())
@@ -109,5 +110,5 @@ app.post("/get-sales", async (req, res) => {
     res.json(data)
 })
 
-app.listen(3000)
-console.log(`Corriendo el servidor en http://localhost:3000`)
+app.listen(PORT)
+console.log(`SERVER CORRIENDO EN EL PUERTO ${PORT}`)
