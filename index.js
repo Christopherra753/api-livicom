@@ -15,6 +15,10 @@ app.post("/verify-email", async (req, res) => {
     return res.json({ result: false })
 })
 
+app.get("/", (req, res) => {
+    res.json({ message: "Hello" })
+})
+
 app.post("/create-user", async (req, res) => {
     const { name, last_name, address, phone, email, rol, password } = req.body
     const passwordHash = await bcryptjs.hash(password, 8)
